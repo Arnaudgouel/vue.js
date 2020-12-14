@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shop</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div id="app">
+        <div class="w3-top"></div>
+        <div class="w3-container w3-center">
+            <h1>{{title}}</h1>
+            <div class="w3-row-padding">
+                <!-- Single product -->
+                <div class="w3-col l4 m6 w3-padding">
+                    <img :src="image">
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <p>footer</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>

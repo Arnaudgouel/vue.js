@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Starting</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <!-- {{}} => interpolation de texte -->
+        <p>{{introduction}}</p>
+        <!-- attribut v-if pour gérer condition ensuite v-else et v-else-if --> 
+        <h2 v-if="christmas">{{subTitle}}</h2>
+        <h2 v-else-if="summer === 3">Summer</h2>
+        <!-- v-show affichage conditionnel -->
+        <h3 v-show="sale">Promotions</h3>
+        <img v-bind:src="image" v-on:mouseover="count++; alert(count)"/>
+        <!-- v-bind:src peut être remplacé par :scr lie un attribut-->
+        <ul>
+            <!-- v-for gère les itérations -->
+            <li v-for="(item, index, key) in product" :key="key">{{index}} {{item}}</li>
+        </ul>
+        <p>
+            <!-- v-on:evenementJs pour gérer les evenements -->
+            <button v-on:click="count++; alert(count)">Click {{count}}</button>
+        </p>
+        <!-- v-model permet de faire une liaison bidirectionnelle -->
+        <input type="text" v-model="property">
+        <p v-if="property === '524'">Code promo activé</p>
+        <footer>{{footerMessage}}</footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
