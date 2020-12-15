@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstanceV3</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <mycomponent></mycomponent>
+        <mycomponent></mycomponent>
+        <mycomponent></mycomponent>
+        <mycomponent></mycomponent>
+        <mycomponent></mycomponent>
+        <mycomponent></mycomponent>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="main.js"></script>
+    <script src="mycomponent.js"></script>
+
+    <script>
+        // Mount doit petre appelé après toutes les déclarations de composants
+        const vm = app.mount("#app");
+    </script>
+</body>
+</html>
