@@ -5,22 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InstanceV3</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        img{
+            width:500px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <h1>{{title}}</h1>
+        <h1 class="w3-center">{{title}}</h1>
+        <div>
+            <img :src="'assets/' + slides[index]">
+            <!-- Component à optimiser 
+            <carousel></carousel> -->
+
+        </div>
         <!-- Récupérer la propriété "property" du parent -->
-        <mycomponent :myprops="property"></mycomponent>
-        <mycomponent @hello-parent="wakeUp( $event )"></mycomponent>
-        <mycomponent></mycomponent>
-        <mycomponent></mycomponent>
-        <mycomponent></mycomponent>
-        <mycomponent></mycomponent>
+
     </div>
 
     <script src="https://unpkg.com/vue@next"></script>
     <script src="main.js"></script>
-    <script src="mycomponent.js"></script>
+    <script src="carousel.js"></script>
 
     <script>
         // Mount doit petre appelé après toutes les déclarations de composants
