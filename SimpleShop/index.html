@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Shop</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .slide-enter-active{
+            animation: slide 0.5s;
+        }
+        .slide-leave-active{
+            animation: slide 0.5s reverse;
+        }
+        @keyframes slide {
+            0%{
+                transform: translateY(-1000px);
+            }
+            100%{
+                transform: translateY(0px);
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -12,32 +28,34 @@
             <!-- nav bar -->
             <div class="w3-bar w3-white w3-card w3-animate-top">
                 <a href="#"class="w3-button w3-bar-item">HOME</a>
-                <a href="#" class="w3-right w3-button w3-bar-item" v-on:click="setDisplayCart">({{cart.length}}) SHOPPING CART</a>
-            </div>
-            <!-- panier -->
-            <div class="w3-right w3-border w3-white w3-hide w3-animate-top" :class="{'w3-show' : displayCart}">
-                <table class="w3-table">
-                    <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                    </tr>
-                    <tr v-for="product in cart">
-                        <td>{{product.name}}</td>
-                        <td>{{product.price}} €</td>
-                    </tr>
-                    <tr>
-                        <td>Discount Code</td>
-                        <td><input type="text" placeholder="CODE PROMO"v-model="property"></td>
-                    </tr>
-                    <tr>
-                        <th>Total</th>
-                        <th v-if="property === 'QUENTIN2020'">{{totalPrice}} (-{{discount}}€) {{getDiscountTotal}} €</th>
-                        <th v-else="property === ''">{{totalPrice}} €</th>
-                    </tr>
-                    
-                </table>
+                <a href="#" class="w3-right w3-button w3-bar-item" @click="setDisplayCart">({{cart.length}}) SHOPPING CART</a>
             </div>
 
+            <transition name="slide">           
+                <!-- panier -->
+                <div class="w3-right w3-border w3-white" v-show="displayCart">
+                    <table class="w3-table">
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                        </tr>
+                        <tr v-for="product in cart">
+                            <td>{{product.name}}</td>
+                            <td>{{product.price}} €</td>
+                        </tr>
+                        <tr>
+                            <td>Discount Code</td>
+                            <td><input type="text" placeholder="CODE PROMO"v-model="property"></td>
+                        </tr>
+                        <tr>
+                            <th>Total</th>
+                            <th v-if="property === 'QUENTIN2020'">{{totalPrice}} (-{{discount}}€) {{getDiscountTotal}} €</th>
+                            <th v-else="property === ''">{{totalPrice}} €</th>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </transition>
         </div>
         <div class="w3-container w3-center" style="margin-top: 40px;">
             <h1>{{title}}</h1>

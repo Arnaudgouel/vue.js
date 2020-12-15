@@ -56,12 +56,7 @@ const app = new Vue ({
             console.log(this.totalPrice);
         },
         setDisplayCart(){
-            if (this.displayCart){
-                this.displayCart = false;
-            }
-            else{
-                this.displayCart = true;
-            }
+            this.displayCart = !this.displayCart;
         }
     },
     computed:{

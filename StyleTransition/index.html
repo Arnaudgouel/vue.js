@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Style Transition</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .red{
+            color:red;
+        }
+        .bounce-enter-active{
+            animation: bounce-in 0.5s;
+        }
+        .bounce-leave-active{
+            animation: bounce-in 0.5s reverse;
+        }
+        @keyframes bounce-in {
+            0%{
+                transform: scale(0);
+            }
+            50%{
+                transform: scale(1.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <p>{{title}}</p>
+        <p :class="{'red' : verif}">{{text}}</p>
+        <h2 :style="{'backgroundColor' : green}">SUB TITLE</h2> 
+
+        <a href="#" @click="animate()">Animate</a>
+        <transition name="bounce">
+            <h3 v-show="display" class="w3-center">TRANSITION</h3>
+        </transition>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="main.js"></script>
+</body>
+</html>
