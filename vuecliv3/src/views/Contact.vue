@@ -1,15 +1,15 @@
 <template>
-    <div>
-        <h2>Footer</h2>
-        <p>This is my footer</p>
-    </div>
+    <p class="w3-animate-left">Contact</p>
 </template>
 
 <script>
 export default {
-    name:"Footer'",
+    name: "Contact",
     data(){
         return{}
+    },
+    methods:{
+        
     }
 }
 </script>

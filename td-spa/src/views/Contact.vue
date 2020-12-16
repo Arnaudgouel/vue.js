@@ -1,5 +1,5 @@
 <template>
-    <p>Contact</p>
+    <p class="w3-animate-left">Contact</p>
 </template>
 
 <script>
