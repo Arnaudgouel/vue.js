@@ -4,7 +4,7 @@
   
   <div>
     <!-- Router-View permet de charger les composants correspondants de chaque route -->
-    <router-view @myEvent="addToCart($event)"/>
+    <router-view @deleteCart="deleteCart()" @myEvent="addToCart($event)" :cart="cart" :totalPrice="totalPrice" :discount="discount" :getDiscountTotal="getDiscountTotal" :products="products"/>
   </div>
 
   <Footer/>
@@ -30,7 +30,7 @@ export default {
                 {
                     id: 1,
                     name: "Gratuit",
-                    price : "0",
+                    price : 0,
                     image:"/assets/Christmas-tree-happy.png",
                     feature1: "10 utilisateurs inclus",
                     feature2: "2 GB de stockage",
@@ -41,7 +41,7 @@ export default {
                 {
                     id: 2,
                     name: "Pro",
-                    price : "15",
+                    price : 15,
                     image:"/assets/Mistletoe.png",
                     feature1: "20 utilisateurs inclus",
                     feature2: "10 GB de stockage",
@@ -52,7 +52,7 @@ export default {
                 {
                     id: 3,
                     name: "Entreprise",
-                    price : "30",
+                    price : 30,
                     image:"/assets/Snowman.png",
                     feature1: "30 utilisateurs inclus",
                     feature2: "15 GB de stockage",
@@ -77,6 +77,19 @@ export default {
             this.totalPrice += $event.price;
             console.log(this.totalPrice);
         },
+    deleteCart(){
+      this.cart = [];
+    },
+    getDiscountTotal(){
+          
+          if (this.discount > this.totalPrice){
+              return 0
+          }
+          else{
+
+              return this.discount;
+          }
+      }
     
     // display(){
     //   this.displayNav = !this.displayNav;

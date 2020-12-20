@@ -38,45 +38,12 @@
 export default {
     name: "Shop",
     props:[
+        'products'
     ],
     components: {},
     data(){
         return{
-            products:[
-                {
-                    id: 1,
-                    name: "Gratuit",
-                    price : 0,
-                    image:"assets/Christmas-tree-happy.png",
-                    feature1: "10 utilisateurs inclus",
-                    feature2: "2 GB de stockage",
-                    feature3: "Support par Email",
-                    feature4: "Accès au centre d'aide",
-                    
-                },
-                {
-                    id: 2,
-                    name: "Pro",
-                    price : 15,
-                    image:"assets/Mistletoe.png",
-                    feature1: "20 utilisateurs inclus",
-                    feature2: "10 GB de stockage",
-                    feature3: "Support par Email prioritaire",
-                    feature4: "Accès au centre d'aide",
-                    
-                },
-                {
-                    id: 3,
-                    name: "Entreprise",
-                    price : 30,
-                    image:"assets/Snowman.png",
-                    feature1: "30 utilisateurs inclus",
-                    feature2: "15 GB de stockage",
-                    feature3: "Support par Email et Téléphone",
-                    feature4: "Accès au centre d'aide",
-                    
-                }
-            ]
+            
         }
     },
     methods:{

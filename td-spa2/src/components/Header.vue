@@ -38,7 +38,7 @@
                 <a href="#" class="w3-right w3-button w3-bar-item" @click="setDisplayCart()">({{cart.length}}) Panier</a>
             </li>
             <li class="nav-item w3-right">
-                <a href="https://github.com/Arnaudgouel/vue.js" class="w3-right w3-button w3-bar-item" >Github</a>
+                <a target="_blank" href="https://github.com/Arnaudgouel/vue.js" class="w3-right w3-button w3-bar-item" >Github</a>
             </li>
             </ul>
         </div>
@@ -49,8 +49,8 @@
     <div class="w3-right w3-border w3-white position-absolute" v-show="displayCart">
         <table class="w3-table">
             <tr>
-                <th>Product</th>
-                <th>Price</th>
+                <th>Produit</th>
+                <th>Prix</th>
             </tr>
             <tr v-for="product in cart" :key="product">
                 <td>{{product.name}}</td>
@@ -62,7 +62,7 @@
             </tr>
             <tr>
                 <th>Total</th>
-                <th v-if="property === 'QUENTIN2020'">{{totalPrice}} (-{{discount}}€) {{getDiscountTotal}} €</th>
+                <th v-if="property === 'QUENTIN2020'">{{totalPrice}} (-{{discount}}€) {{(totalPrice-discount)}} €</th>
                 <th v-else>{{totalPrice}} €</th>
             </tr>                      
         </table>
@@ -80,48 +80,12 @@ export default {
         'cart',
         'totalPrice',
         'discount',
+        'products'
     ],
     data(){
         return{
             displayNav:true,
             displayCart:false,
-            discountTotal:0,
-            
-            products:[
-                {
-                    id: 1,
-                    name: "Gratuit",
-                    price : "0",
-                    image:"/assets/Christmas-tree-happy.png",
-                    feature1: "10 utilisateurs inclus",
-                    feature2: "2 GB de stockage",
-                    feature3: "Support par Email",
-                    feature4: "Accès au centre d'aide",
-                    
-                },
-                {
-                    id: 2,
-                    name: "Pro",
-                    price : "15",
-                    image:"/assets/Mistletoe.png",
-                    feature1: "20 utilisateurs inclus",
-                    feature2: "10 GB de stockage",
-                    feature3: "Support par Email prioritaire",
-                    feature4: "Accès au centre d'aide",
-                    
-                },
-                {
-                    id: 3,
-                    name: "Entreprise",
-                    price : "30",
-                    image:"/assets/Snowman.png",
-                    feature1: "30 utilisateurs inclus",
-                    feature2: "15 GB de stockage",
-                    feature3: "Support par Email et Téléphone",
-                    feature4: "Accès au centre d'aide",
-                    
-                }
-            ],
             property:"",
         }
     },

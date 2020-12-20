@@ -6,25 +6,29 @@ import Product from "../views/Product.vue";
 
 const router = createRouter({
     history : createWebHistory(),
+    // mettre /arnaud devant pour l'hebergement web 
     routes:[
         {
-            path: "/arnaud/",
+            path: "/",
             name: "Home",
             component: Home
         },
         {
-            path: "/arnaud/shop",
+            path: "/shop",
             name: "Shop",
             component: Shop,
             props : true
         },
         {
-            path: "/arnaud/contact",
+            path: "/contact",
             name: "Contact",
-            component: Contact
+            component: Contact,
+            props : {
+
+            }
         },
         {
-            path: "/arnaud/product/:id",
+            path: "/product/:id",
             name: "Product",
             component: Product
         },

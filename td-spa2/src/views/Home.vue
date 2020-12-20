@@ -104,7 +104,7 @@ export default {
 
     },
     mounted(){
-        setInterval(()=>{this.slideNext()}, 4000)
+        setInterval(()=>{this.slideNext()}, 3500)
     }
 }
 </script>
