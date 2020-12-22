@@ -111,10 +111,22 @@
           </form>
         </div>
       </div>
+      <h3 class="text-center mb-5 mt-5">Voici les 3 vidéos youtube les plus vues sur le thème de o2switch</h3>
+      <div class="row">
+          <div v-for="api in apiYoutube" :key="api" class="col-md-4">
+            <img class="rounded mx-auto d-block" :src="api.snippet.thumbnails.medium.url" alt="" srcset="">
+            <h4 class="text-center align-text-bottom">
+              <a target="_blank" :href="'https://www.youtube.com/watch?v=' + api.id.videoId">
+              {{api.snippet.title}}
+              </a>
+            </h4>
+          </div>
+      </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     name: "Contact",
     props:[
@@ -127,6 +139,7 @@ export default {
         return{
           promoValide : false,
           promo : '',
+          apiYoutube : '',
 
         }
     },
@@ -135,6 +148,13 @@ export default {
         this.$emit("deleteCart");
       },
 
+    },
+    mounted(){
+      axios.get('https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&order=viewCount&q=o2switch&type=video&key=AIzaSyDCHtEfdOPDbp8EFTwWfawO6IjkZitTd_4')
+      .then( api =>{
+        console.log(api.data.items)
+        this.apiYoutube = api.data.items;
+      })
     }
 }
 </script>
